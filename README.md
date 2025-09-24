@@ -1,96 +1,102 @@
-# MEN Stack Starter Template with Session Authentication
+# 👗 Virtual Closet App
 
-Welcome to the MEN Stack Starter Template! This template provides a foundational setup for building web applications using MongoDB, Express.js, and Node.js, complete with session authentication. This is ideal for students looking to kickstart their development projects.
+The Virtual Closet app is a personal wardrobe manager where users can create a digital version of their closet.  
+It allows adding clothing items, organizing them into outfits, and viewing all wardrobe items in one place.  
 
-## Table of Contents
-- [Prerequisites](#prerequisites)
-- [Clone the Repository](#clone-the-repository)
-- [Installation](#installation)
-- [Environment Setup](#environment-setup)
-- [Running the Application](#running-the-application)
-- [Removing Git and Creating Your Own Repo](#removing-git-and-creating-your-own-repo)
-- [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
+This app was built as part of a full-stack project using Node.js and MongoDB.  
+It combines authentication, CRUD functionality, and relational data modeling to meet assignment requirements.  
 
-## Prerequisites
+---
 
-Before you begin, ensure you have the following installed on your machine:
-- [Node.js](https://nodejs.org/) (LTS or later)
-- [MongoDB](https://www.mongodb.com/) (make sure it's running)
-- [Git](https://git-scm.com/) (for cloning the repository)
+## 🖼️ Screenshot / Logo
+![App Screenshot](screenshot.png)  
 
-## Clone the Repository
+---
 
-To clone this repository, open your terminal and run:
+## ✨ Inspiration
+The idea for this app was inspired by the movie *Clueless* (1995).  
+In the film, the main character Cher uses a computer program to browse her wardrobe and put together outfits.  
+This project reimagines that concept with modern web technologies, giving users their own digital closet to store clothing items and create outfits.
 
-```bash
-git clone https://github.com/SEB-PT-6-Solutions/men-stack-session-auth-template.git YOUR_APP_NAME_HERE
-```
+---
 
-## Installation
-Navigate into the cloned directory:
-```bash
-cd YOUR_APP_NAME
-```
+## 📌 User Stories
 
-Then, install the necessary dependencies:
+- **As a guest user**  
+  - I want to sign up for an account, so that I can have my own virtual closet.  
+  - I want to log in, so that I can access my closet.  
+  - I want to be restricted from adding, editing, or deleting clothing items or outfits, so that only registered users can manage data.  
 
-```bash
-npm i
-```
+- **As a logged-in user**  
+  - I want to add new clothing items, so that I can keep track of my wardrobe.  
+  - I want to view all my clothing items, so that I can see what I own at a glance.  
+  - I want to edit clothing items, so that I can correct or update their details.  
+  - I want to delete clothing items, so that I can remove items I no longer want.  
+  - I want to create outfits by combining clothing items, so that I can plan my outfits.  
+  - I want to view my outfits, so that I can see my combinations at a glance.  
+  - I want to edit my outfits, so that I can modify outfit details or add/remove items.  
+  - I want to delete my outfits, so that I can remove unwanted combinations.  
+  - I want to log out securely, so that my account remains private.  
 
-## Environment Setup
-```plaintext
-MONGODB_URI=atlas_db_uri
-SESSION_SECRET=your_secret_key
-```
-Replace `atlas_db_uri` with your desired database name and `your_secret_key` with a secure key.
+---
 
-## Removing Git and Creating Your Own Repo
-To remove the existing Git history and create your own repository:
+## 📂 Routes Overview
 
-1. Remove the existing .git folder:
-  ```bash
-  rm -rf .git
-  ```
-2. Initialize a new Git repository:
-  ```bash
-  git init
-  ```
-3. Add all files to the new repository:
-  ```bash
-  git add .
-  ```
-4. Commit the changes
-   ```bash
-   git commit -m "Initial commit"
-   ``` 
-5. Create a new repository on GitHub (or any other platform) and follow the instructions to push your local repository.
-  Make a new repository on [GitHub](https://github.com/) named `<your-project-name>`
-  Now link your local project to your remote GitHub repo:
-  ```bash
-  git remote add origin https://github.com/<github-username>/YOUR_APP_NAME.git
-  git push origin main
-  ```
+### Authentication
+| Method | Route        | Description             |
+|--------|-------------|-------------------------|
+| GET    | `/signup`   | Show signup form        |
+| POST   | `/signup`   | Create new user         |
+| GET    | `/login`    | Show login form         |
+| POST   | `/login`    | Authenticate user       |
+| GET    | `/logout`   | Log out current user    |
 
-> 🚨 Do not copy the above command. It will not work. Your GitHub username will replace `<github-username>` (including the `<` and `>`) in the URL above.
+### Clothing Items
+| Method | Route              | Description                     |
+|--------|-------------------|---------------------------------|
+| GET    | `/clothing`       | List all clothing items (user)  |
+| GET    | `/clothing/new`   | Show form to add new item       |
+| POST   | `/clothing`       | Create new clothing item        |
+| GET    | `/clothing/:id`   | Show details of one item        |
+| GET    | `/clothing/:id/edit` | Show edit form              |
+| PUT    | `/clothing/:id`   | Update item details             |
+| DELETE | `/clothing/:id`   | Delete clothing item            |
 
-## Running the application
-```bash
-npm run dev
-```
+### Outfits
+| Method | Route             | Description                     |
+|--------|------------------|---------------------------------|
+| GET    | `/outfits`       | List all outfits (user)         |
+| GET    | `/outfits/new`   | Show form to create new outfit  |
+| POST   | `/outfits`       | Create new outfit               |
+| GET    | `/outfits/:id`   | Show details of one outfit      |
+| GET    | `/outfits/:id/edit` | Show edit form               |
+| PUT    | `/outfits/:id`   | Update outfit details           |
+| DELETE | `/outfits/:id`   | Delete outfit                   |
 
-## Features
-- User registration and login with session management
-- Basic CRUD operations
-- Modular file structure
-- Example routes and controllers
-- Basic user model setup
-- Middleware for templates and authorization
-- Basic authentication flow
+---
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+## 🛠️ Technologies Used
 
-Happy Coding!
+- **Languages:** JavaScript, HTML, CSS  
+- **Backend Framework:** Node.js, Express  
+- **Frontend:** EJS Templates  
+- **Database:** MongoDB with Mongoose  
+- **Authentication:** express-session + bcrypt  
+- **Deployment:** Render or Railway + MongoDB Atlas  
+
+---
+
+## ⚙️ Getting Started
+
+- **Deployed App:** [Live Demo](https://your-deployed-app-link.com)  
+- **Planning Materials:** [Trello Board / Wireframes / Docs](https://trello.com/invite/b/68cfdb04cd1a41da3d331923/ATTI33fb665c90d835021aeb1e0563a0c5f9AE633675/virtual-closet)
+
+---
+
+## 🚀 Future Work
+
+- Integration with external fashion APIs (e.g., trend suggestions, shopping links).  
+- Outfit calendar to plan what to wear on specific days.  
+- Social features: follow friends, like and comment on outfits.  
+- AI-based outfit recommendations based on user preferences and closet inventory.  
+- Export closet/outfits as a PDF lookbook.  
