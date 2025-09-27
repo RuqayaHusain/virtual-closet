@@ -45,11 +45,11 @@ This project reimagines that concept with modern web technologies, giving users 
 ### Authentication
 | Method | Route        | Description             |
 |--------|-------------|-------------------------|
-| GET    | `/signup`   | Show signup form        |
-| POST   | `/signup`   | Create new user         |
-| GET    | `/login`    | Show login form         |
-| POST   | `/login`    | Authenticate user       |
-| GET    | `/logout`   | Log out current user    |
+| GET    | `auth/sign-up`   | Show signup form        |
+| POST   | `auth/sign-up`   | Create new user         |
+| GET    | `auth/sign-in`    | Show login form         |
+| POST   | `auth/sign-in`    | Authenticate user       |
+| GET    | `auth/sign-out`   | Log out current user    |
 
 ### Clothing Items
 | Method | Route              | Description                     |
