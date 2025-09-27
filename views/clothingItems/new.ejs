@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Items!</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <form action="/users/<%= user._id %>/clothingItems" method="POST">
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required/>
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" cols="30" rows="10" required></textarea>
+
+        <label for="category">Category:</label>
+        <select name="category" id="category" required>
+            <option value="Tops">Tops</option>
+            <option value="Bottoms">Bottoms</option>
+            <option value="Dresses">Dresses</option>
+            <option value="Outerwear">Outerwear</option>
+            <option value="Footwear">Footwear</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Bags">Bags</option>
+            <option value="Activewear">Activewear</option>
+            <option value="Formalwear">Formalwear</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="color">Color:</label>
+        <select name="color" id="color" required>
+            <option value="Black">Black</option>
+            <option value="White">White</option>
+            <option value="Gray">Gray</option>
+            <option value="Beige">Beige</option>
+            <option value="Brown">Brown</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Navy">Navy</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Orange">Orange</option>
+            <option value="Red">Red</option>
+            <option value="Pink">Pink</option>
+            <option value="Purple">Purple</option>
+            <option value="Multicolor">Multicolor</option>
+        </select>
+
+        <label for="image-url">ImageURL:</label>
+        <input type="text" name="image-url" id="image-url">
+
+        <button type="submit">Create Item</button>
+    </form>
+</body>
+</html>
