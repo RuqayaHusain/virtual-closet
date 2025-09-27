@@ -29,4 +29,15 @@ router.get('/new', async (req, res) => {
     }
 });
 
+router.post('/', async (req, res) => {
+    try {
+        req.body.owner = req.session.user._id;
+        await ClosetItem.create(req.body);
+        res.redirect('/closetItems');
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+});
+
 module.exports = router;
