@@ -1,11 +1,10 @@
 <nav>
 
     <h1>Virtual Closet</h1>  
+    <a href="/">Home</a>
     <% if(user) { %>
-        <a href="/users/<%= user._id %>/clothingItems">Dashboard</a>
         <a href="/auth/sign-out">Sign out</a>
     <% } else { %>
-        <a href="/">Home</a>
         <a href="/auth/sign-up">Sign up</a>
         <a href="/auth/sign-in">Sign in</a>
     <% } %>
