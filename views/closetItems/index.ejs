@@ -9,10 +9,26 @@
     <%- include('../partials/_navbar.ejs') %>
 
     <div>
+        <p><%= numberOfItems %># Items</p>
         <div>
             <a href="/closetItems/new">Add Closet Item</a>
             <a href="/outfits/new">Add Outfit</a>
         </div>
+    </div>
+
+    <div>
+        <% if(numberOfItems > 0) { %>
+            <ul>
+                <% AllClosetItems.forEach((item) => { %>
+                    <li>
+                        <a href="/closetItems/<%= item._id %>"><%= item.name %></a>
+                    </li>
+                <% }) %>
+            </ul>
+            
+        <% } else { %>
+            <p>No Items added yet!</p>
+        <% } %>
     </div>
 </body>
 </html>
