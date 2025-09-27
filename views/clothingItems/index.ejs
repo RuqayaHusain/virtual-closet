@@ -9,5 +9,11 @@
     <%- include('../partials/_navbar.ejs') %>
 
     <h1>Welcome <%= currentUsername %>!</h1>
+    <div>
+        <div>
+            <a href="/users/<%= user._id %>/clothingItems/new">Add Closet Item</a>
+            <a href="/users/<%= user._id %>/outfits/new">Add Outfit</a>
+        </div>
+    </div>
 </body>
 </html>

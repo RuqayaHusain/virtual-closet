@@ -50,8 +50,10 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authController);
-app.use('/users/:userId/clothingItems', clothingItemsController);
+app.use(isSignedIn);
 // PROTECTED
+app.use('/users/:userId/clothingItems', clothingItemsController);
+
 
 app.get('/vip-lounge', isSignedIn, (req, res) => {
   res.send(`Welcome to the party ${req.session.user.username}.`);
