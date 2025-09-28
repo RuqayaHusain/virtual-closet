@@ -59,6 +59,7 @@ router.get('/:outfitId', async (req, res) => {
 
         res.render('outfits/show.ejs', {
             selectedOutfit,
+            listOfSelectedItems: (await selectedOutfit.populate('closetItems')).closetItems,
         });
     } catch (error) {
         console.log(error);

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= selectedOutfit.name %>'s Details</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <h2><%= selectedOutfit.name %>'s Details</h2>
+
+    <div>
+        <h3>Outfit Details</h3>
+        <% listOfSelectedItems.forEach((item) => { %>
+            <img src="<%= item.imageURL %>" alt="<%= item.description %>">
+        <% }) %>
+    </div>
+
+</body>
+</html>
