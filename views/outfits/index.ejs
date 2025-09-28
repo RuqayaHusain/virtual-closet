@@ -18,7 +18,7 @@
     <div>
         <% if(numberOfOutfits > 0) { %>
             <ul>
-                <% AllOutfits.forEach((outfit) => { %>
+                <% allOutfits.forEach((outfit) => { %>
                     <li>
                         <a href="/outfits/<%= outfit._id %>"><%= outfit.name %></a>
                     </li>

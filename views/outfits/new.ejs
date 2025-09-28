@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Add New Outfit!</title>
+</head>
+<body>
+
+  <%- include('../partials/_navbar.ejs') %>
+
+  <h2>Add New Outfit</h2>
+
+    <form action="/outfits" method="POST">
+
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    
+    <h3>Select Clothing Items:</h3>
+    <% allClosetItems.forEach(item => { %>
+      <div>
+        <input type="checkbox" name="closetItems" value="<%= item._id %>" id="item_<%= item._id %>" hidden>
+        
+        <label for="item_<%= item._id %>" class="item-label">
+          <% if (item.imageURL) { %>
+            <img src="<%= item.imageURL %>" alt="<%= item.name %>" width="80">
+          <% } %>
+          <div><%= item.name %></div>
+        </label>
+      </div>
+    <% }) %>
+    
+    <br>
+    <button type="submit">Create Outfit</button>
+  </form>
+
+</body>
+</html>
