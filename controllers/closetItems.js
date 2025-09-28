@@ -84,4 +84,22 @@ router.put('/:itemId', async (req, res) => {
     }
 });
 
+router.delete('/:itemId', async (req, res) => {
+    try {
+        const itemId = req.params.itemId;
+        const selectedItem = await ClosetItem.findById(itemId).populate('owner');
+
+        if (selectedItem.owner._id.equals(req.session.user._id)) {
+            await selectedItem.deleteOne();
+            res.redirect('/closetItems');
+        } else {
+            console.log('Permission denied');
+            res.redirect('/');
+        }
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+})
+
 module.exports = router;
