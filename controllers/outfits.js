@@ -52,4 +52,17 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.get('/:outfitId', async (req, res) => {
+    try {
+        const outfitId = req.params.outfitId;
+        const selectedOutfit = await Outfit.findById(outfitId).populate('owner');
+
+        res.render('outfits/show.ejs', {
+            selectedOutfit,
+        });
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+});
 module.exports = router
