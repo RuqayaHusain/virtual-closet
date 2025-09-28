@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Closet</title>
+    <title>Outfits</title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
 
     <div>
-        <p><%= numberOfItems %># Items</p>
+        <p><%= numberOfOutfits %># Outfits</p>
         <div>
-            <a href="/closetItems/new">Add Closet Item</a>
+            <a href="/outfits/new">Add Outfit</a>
         </div>
     </div>
 
     <div>
-        <% if(numberOfItems > 0) { %>
+        <% if(numberOfOutfits > 0) { %>
             <ul>
-                <% AllClosetItems.forEach((item) => { %>
+                <% AllOutfits.forEach((outfit) => { %>
                     <li>
-                        <a href="/closetItems/<%= item._id %>"><%= item.name %></a>
+                        <a href="/outfits/<%= outfit._id %>"><%= outfit.name %></a>
                     </li>
                 <% }) %>
             </ul>

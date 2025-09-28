@@ -16,6 +16,7 @@ const passUserToView = require('./middleware/pass-user-to-view.js');
 // Controllers
 const authController = require('./controllers/auth.js');
 const closetItemsController = require('./controllers/closetItems.js');
+const outfitsController = require('./controllers/outfits.js');
 
 // Set the port from environment variable or default to 3000
 const PORT = process.env.PORT ? process.env.PORT : '3000';
@@ -53,6 +54,7 @@ app.use('/auth', authController);
 app.use(isSignedIn);
 // PROTECTED
 app.use('/closetItems', closetItemsController);
+app.use('/outfits', outfitsController);
 
 
 app.get('/vip-lounge', isSignedIn, (req, res) => {
