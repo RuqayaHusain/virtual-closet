@@ -40,4 +40,17 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.get('/:itemId', async (req, res) => {
+    try {
+        const itemId = req.params.itemId;
+        const selectedItem = await ClosetItem.findById(itemId).populate('owner');
+        res.render('closetItems/show.ejs', {
+            selectedItem,
+        });
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+});
+
 module.exports = router;

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= selectedItem.name %>'s Details</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    
+    <h1><%= selectedItem.name %>'s Details</h1>
+
+    <div>
+        <img src="<%= selectedItem.imageURL %>" alt="<%= selectedItem.description %>">
+    </div>
+
+    <div>
+        <div>
+            Name: <%= selectedItem.name %>
+        </div>
+        <div>
+            Description: <%= selectedItem.description %>
+        </div>
+        <div>
+            Category: <%= selectedItem.category %>
+        </div>
+        <div>
+            Color: <%= selectedItem.color %>
+        </div>
+    </div>
+
+    <% if (selectedItem.owner._id.equals(user._id)) { %>
+        <div>
+            <a href="/closetItems/<%= selectedItem._id %>/edit">Edit <%= selectedItem.name %></a>
+
+            <form action="/closetItems/<%= selectedItem._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete <%= selectedItem.name %></button>
+            </form>
+        </div>
+    <% } %>
+</body>
+</html>
