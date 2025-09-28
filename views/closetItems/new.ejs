@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Items!</title>
+    <title>Add New Item!</title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
+
+    <h2>Add New Item</h2>
 
     <form action="/closetItems" method="POST">
 
@@ -37,7 +39,6 @@
             <option value="Gray">Gray</option>
             <option value="Beige">Beige</option>
             <option value="Brown">Brown</option>
-            <option value="Accessories">Accessories</option>
             <option value="Navy">Navy</option>
             <option value="Blue">Blue</option>
             <option value="Green">Green</option>
@@ -50,7 +51,7 @@
         </select>
 
         <label for="image-url">ImageURL:</label>
-        <input type="text" name="image-url" id="image-url">
+        <input type="text" name="imageURL" id="image-url">
 
         <button type="submit">Create Item</button>
     </form>

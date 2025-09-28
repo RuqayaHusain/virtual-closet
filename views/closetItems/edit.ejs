@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= selectedItem.name %>!</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <h2>Edit <%= selectedItem.name %></h2>
+
+    <form action="/closetItems/<%= selectedItem._id %>?_method=PUT" method="POST">
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="<%= selectedItem.name %>" required/>
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" cols="30" rows="10"><%= selectedItem.description %></textarea>
+
+        <label for="category">Category:</label>
+        <select name="category" id="category" required>
+            <option value="Tops" <%= selectedItem.category === 'Tops' ? 'selected' : '' %>>
+                Tops
+            </option>
+            <option value="Bottoms" <%= selectedItem.category === 'Bottoms' ? 'selected' : '' %>>
+                Bottoms
+            </option>
+            <option value="Dresses" <%= selectedItem.category === 'Dresses' ? 'selected' : '' %>>
+                Dresses
+            </option>
+            <option value="Outerwear" <%= selectedItem.category === 'Outerwear' ? 'selected' : '' %>>
+                Outerwear
+            </option>
+            <option value="Footwear" <%= selectedItem.category === 'Footwear' ? 'selected' : '' %>>
+                Footwear
+            </option>
+            <option value="Accessories" <%= selectedItem.category === 'Accessories' ? 'selected' : '' %>>
+                Accessories
+            </option>
+            <option value="Bags" <%= selectedItem.category === 'Bags' ? 'selected' : '' %>>
+                Bags
+            </option>
+            <option value="Activewear" <%= selectedItem.category === 'Activewear' ? 'selected' : '' %>>
+                Activewear
+            </option>
+            <option value="Formalwear" <%= selectedItem.category === 'Formalwear' ? 'selected' : '' %>>
+                Formalwear
+            </option>
+            <option value="Other" <%= selectedItem.category === 'Other' ? 'selected' : '' %>>
+                Other
+            </option>
+        </select>
+
+        <label for="color">Color:</label>
+        <select name="color" id="color" required>
+            <option value="Black" <%= selectedItem.color === 'Black' ? 'selected' : '' %>>
+                Black
+            </option>
+            <option value="White" <%= selectedItem.color === 'White' ? 'selected' : '' %>>
+                White
+            </option>
+            <option value="Gray" <%= selectedItem.color === 'Gray' ? 'selected' : '' %>>
+                Gray
+            </option>
+            <option value="Beige" <%= selectedItem.color === 'Beige' ? 'selected' : '' %>>
+                Beige
+            </option>
+            <option value="Brown" <%= selectedItem.color === 'Brown' ? 'selected' : '' %>>
+                Brown
+            </option>
+            <option value="Navy" <%= selectedItem.color === 'Navy' ? 'selected' : '' %>>
+                Navy
+            </option>
+            <option value="Blue" <%= selectedItem.color === 'Blue' ? 'selected' : '' %>>
+                Blue
+            </option>
+            <option value="Green" <%= selectedItem.color === 'Green' ? 'selected' : '' %>>
+                Green
+            </option>
+            <option value="Yellow" <%= selectedItem.color === 'Yellow' ? 'selected' : '' %>>
+                Yellow
+            </option>
+            <option value="Orange" <%= selectedItem.color === 'Orange' ? 'selected' : '' %>>
+                Orange
+            </option>
+            <option value="Red" <%= selectedItem.color === 'Red' ? 'selected' : '' %>>
+                Red
+            </option>
+            <option value="Pink" <%= selectedItem.color === 'Pink' ? 'selected' : '' %>>
+                Pink
+            </option>
+            <option value="Purple" <%= selectedItem.color === 'Purple' ? 'selected' : '' %>>
+                Purple
+            </option>
+            <option value="Multicolor" <%= selectedItem.color === 'Multicolor' ? 'selected' : '' %>>
+                Multicolor
+            </option>
+        </select>
+
+        <label for="image-url">ImageURL:</label>
+        <input type="text" name="imageURL" id="image-url" value="<%= selectedItem.imageURL %>">
+
+        <button type="submit">Edit <%= selectedItem.name %></button>
+    </form>
+</body>
+</html>
