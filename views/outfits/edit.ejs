@@ -2,19 +2,19 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Add New Outfit!</title>
+  <title>Edit <%= selectedOutfit.name %>!</title>
 </head>
 <body>
 
   <%- include('../partials/_navbar.ejs') %>
 
-  <h2>Add New Outfit</h2>
+  <h2>Edit <%= selectedOutfit.name %></h2>
 
-    <form action="/outfits" method="POST">
+    <form action="/outfits/<%= selectedOutfit._id %>?_method=PUT" method="POST">
 
     <div>
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" id="name" name="name" value="<%= selectedOutfit.name %>" required>
     </div>
     
     <h3>Select Clothing Items:</h3>
@@ -24,7 +24,8 @@
         name="closetItems" 
         value="<%= item._id %>" 
         id="item_<%= item._id %>" 
-        hidden>
+        hidden
+        <%= selectedOutfit.closetItems.some(closetItem => closetItem._id.toString() === item._id.toString()) ? "checked" : "" %>>
         
         <label for="item_<%= item._id %>" class="item-label">
           <% if (item.imageURL) { %>
@@ -36,7 +37,7 @@
     <% }) %>
     
     <br>
-    <button type="submit">Create Outfit</button>
+    <button type="submit">Edit <%= selectedOutfit.name %></button>
   </form>
 
 </body>

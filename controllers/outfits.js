@@ -55,15 +55,62 @@ router.post('/', async (req, res) => {
 router.get('/:outfitId', async (req, res) => {
     try {
         const outfitId = req.params.outfitId;
-        const selectedOutfit = await Outfit.findById(outfitId).populate('owner');
+        const selectedOutfit = await Outfit.findById(outfitId).populate('owner').populate('closetItems');
 
         res.render('outfits/show.ejs', {
             selectedOutfit,
-            listOfSelectedItems: (await selectedOutfit.populate('closetItems')).closetItems,
+            listOfSelectedItems: selectedOutfit.closetItems,
         });
     } catch (error) {
         console.log(error);
         res.redirect('/');
     }
 });
+
+router.get('/:outfitId/edit', async (req, res) => {
+    try {
+        const outfitId = req.params.outfitId;
+        const selectedOutfit = await Outfit.findById(outfitId).populate('owner').populate('closetItems');
+        const allClosetItems = await ClosetItem.find({ owner: req.session.user._id });
+
+        res.render('outfits/edit.ejs', {
+            selectedOutfit,
+            allClosetItems,
+        });
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+});
+
+router.put('/:outfitId', async (req, res) => {
+    try {
+        const outfitId = req.params.outfitId;
+        const selectedOutfit = await Outfit.findById(outfitId);
+
+        if (selectedOutfit.owner.equals(req.session.user._id)) {
+
+            if (!req.body.closetItems) {
+                // doesn't allow user to update the record unless one clothing item is selected
+                return res.redirect(`/outfits/${outfitId}/edit`);
+            }
+
+            const editedClosetItems = req.body.closetItems;
+            const selectedItems = Array.isArray(editedClosetItems) ? editedClosetItems : [editedClosetItems];
+
+            req.body.closetItems = selectedItems;
+            await selectedOutfit.updateOne(req.body);
+
+            res.redirect(`/outfits/${outfitId}`);
+            } else {
+                console.log('Permission denied!');
+            }
+        
+
+        await Outfit.fin
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+})
 module.exports = router

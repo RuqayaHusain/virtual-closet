@@ -17,5 +17,10 @@
         <% }) %>
     </div>
 
+    <a href="/outfits/<%= selectedOutfit._id %>/edit">Edit <%= selectedOutfit.name %></a>
+
+    <form action="/outfits/<%= selectedOutfit._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete <%= selectedOutfit.name %></button>
+    </form>
 </body>
 </html>
