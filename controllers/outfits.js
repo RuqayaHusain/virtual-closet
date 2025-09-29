@@ -112,5 +112,23 @@ router.put('/:outfitId', async (req, res) => {
         console.log(error);
         res.redirect('/');
     }
-})
+});
+
+router.delete('/:outfitId', async (req, res) => {
+    try {
+        const outfitId = req.params.outfitId;
+        const selectedOutfit = await Outfit.findById(outfitId);
+
+        if (selectedOutfit.owner._id.equals(req.session.user._id)) {
+            await selectedOutfit.deleteOne();
+            res.redirect('/outfits');
+        } else {
+            console.log('Permission denied');
+        }
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+});
+
 module.exports = router
