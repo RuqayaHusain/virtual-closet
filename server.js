@@ -20,6 +20,7 @@ const outfitsController = require('./controllers/outfits.js');
 
 // Set the port from environment variable or default to 3000
 const PORT = process.env.PORT ? process.env.PORT : '3000';
+const path = require('path');
 
 // MIDDLEWARE
 //
@@ -28,7 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 // Middleware for using HTTP verbs such as PUT or DELETE
 app.use(methodOverride('_method'));
 // Morgan for logging HTTP requests
-app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Session Storage with MongoStore
 app.use(

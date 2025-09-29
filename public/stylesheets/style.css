@@ -1,0 +1,209 @@
+:root {
+    --primary-color: #c6b5b5;
+    --primary-dark: #968787;
+    --primary-light: #eee1e1;
+
+    --secondary-color: #E8E7C1;
+    --secondary-dark: #cfcda1;
+    --secondary-light: #f7f6df;
+
+    --accent-color: #C7DEC7;
+    --accent-dark: #a3c3a3;
+    --accent-light: #e0f0e0;
+
+    --info-color: #B0C7D6;
+    --info-dark: #8aaac0;
+    --info-light: #dbe7f0;
+
+    --white: #ffffff;
+    --black: #1a1a1a;
+    --gray-50: #fdfdfd;
+    --gray-100: #f7f6f5;
+    --gray-200: #ecebeb;
+    --gray-300: #d9d7d6;
+    --gray-400: #b7b5b4;
+    --gray-500: #8c8a89;
+    --gray-600: #6c6a69;
+    --gray-700: #4a4847;
+    --gray-800: #2f2e2d;
+    --gray-900: #1a1a1a;
+
+    --success: #C7DEC7;
+    --warning: #E8E7C1;
+    --error: #D9C7C7;
+    --info: #B0C7D6;
+
+    --bg-primary: #ffffff;
+    --bg-secondary: #fdfdfd;
+    --bg-accent: #E8E7C1;
+
+    --text-primary: #1a1a1a;
+    --text-secondary: #6c6a69;
+    --text-light: #a9a7a6;
+    --border-color: #e0dedc;
+
+    --transition-fast: 150ms ease-in-out;
+    --transition-normal: 300ms ease-in-out;
+    --transition-slow: 500ms ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+nav {
+    background-color: var(--bg-secondary);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+nav h1 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-right: auto;
+    letter-spacing: 0.5px;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+    transition: all var(--transition-fast);
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+nav a:hover {
+    color: var(--white);
+    background-color: var(--primary-color);
+    border-color: var(--primary-dark);
+    box-shadow: 0 2px 6px rgba(91, 125, 160, 0.2);
+}
+
+
+form {
+    background-color: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    max-width: 500px;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+label {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(91, 125, 160, 0.2);
+    background-color: var(--bg-primary);
+}
+
+button[type="submit"],
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+button[type="submit"]:hover,
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+h1,
+h2 {
+    color: var(--text-primary);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1.5rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    nav h1 {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    form {
+        margin: 1.5rem 1rem;
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
