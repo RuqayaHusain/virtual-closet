@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= selectedItem.name %>'s Details</title>
+    <title>
+        <%= selectedItem.name %>'s Details
+    </title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    
-    <h2><%= selectedItem.name %>'s Details</h2>
 
-    <div>
-        <img src="<%= selectedItem.imageURL %>" alt="<%= selectedItem.description %>">
-    </div>
+        <div class="item-details-container">
+            <div>
+                <% if (selectedItem.imageURL) { %>
+                    <img src="<%= selectedItem.imageURL %>" alt="<%= selectedItem.description %>">
+                    <% } else { %>
+                        <p class="no-image-detail">No Image</p>
+                        <% } %>
+            </div>
 
-    <div>
-        <div>
-            Name: <%= selectedItem.name %>
-        </div>
-        <div>
-            Description: <%= selectedItem.description %>
-        </div>
-        <div>
-            Category: <%= selectedItem.category %>
-        </div>
-        <div>
-            Color: <%= selectedItem.color %>
-        </div>
-    </div>
+            <div class="item-info">
+                <h2>
+                    <%= selectedItem.name %>'s Details
+                </h2>
+                <div class="info-field">Name: <%= selectedItem.name %>
+                </div>
+                <div class="info-field description">Description: <%= selectedItem.description %>
+                </div>
+                <div class="info-field">Category: <%= selectedItem.category %>
+                </div>
+                <div class="info-field">Color: <%= selectedItem.color %>
+                </div>
 
-    <% if (selectedItem.owner._id.equals(user._id)) { %>
-        <div>
-            <a href="/closetItems/<%= selectedItem._id %>/edit">Edit <%= selectedItem.name %></a>
-
-            <form action="/closetItems/<%= selectedItem._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete <%= selectedItem.name %></button>
-            </form>
+                <% if (selectedItem.owner._id.equals(user._id)) { %>
+                    <div class="actions">
+                        <a href="/closetItems/<%= selectedItem._id %>/edit">Edit</a>
+                        <form action="/closetItems/<%= selectedItem._id %>?_method=DELETE" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                    <% } %>
+            </div>
         </div>
-    <% } %>
+
 </body>
+
 </html>

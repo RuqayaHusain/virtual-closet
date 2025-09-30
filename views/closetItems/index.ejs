@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Closet</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
     <%- include('../partials/_navbar.ejs') %>
 
-    <div>
-        <p><%= numberOfItems %># Items</p>
-        <div>
-            <a href="/closetItems/new">Add Closet Item</a>
+        <div class="closet-header">
+            <p>
+                <%= numberOfItems %> Items
+            </p>
+            <div>
+                <a href="/closetItems/new">Add Closet Item</a>
+            </div>
         </div>
-    </div>
 
-    <div>
-        <% if(numberOfItems > 0) { %>
-            <ul>
-                <% AllClosetItems.forEach((item) => { %>
-                    <li>
-                        <a href="/closetItems/<%= item._id %>"><%= item.name %></a>
-                    </li>
-                <% }) %>
-            </ul>
-            
-        <% } else { %>
-            <p>No Items added yet!</p>
-        <% } %>
-    </div>
+        <div>
+            <% if(numberOfItems> 0) { %>
+                <div class="closet-grid">
+                    <% AllClosetItems.forEach((item)=> { %>
+                        <div class="closet-card">
+                            <% if (item.imageURL) { %>
+                                <img src="<%= item.imageURL %>" alt="<%= item.description %>">
+                                <% } else { %>
+                                    <p class="no-image">No image</p>
+                                    <% } %>
+                                        <a href="/closetItems/<%= item._id %>">
+                                            <%= item.name %>
+                                        </a>
+                        </div>
+                        <% }) %>
+                </div>
+
+                <% } else { %>
+                    <p class="empty-message">No Items added yet!</p>
+                    <% } %>
+        </div>
 </body>
+
 </html>

@@ -17,13 +17,13 @@
 
     <div>
         <% if(numberOfOutfits > 0) { %>
-            <ul>
+            <div>
                 <% allOutfits.forEach((outfit) => { %>
-                    <li>
+                    <div>
                         <a href="/outfits/<%= outfit._id %>"><%= outfit.name %></a>
-                    </li>
+                    </div>
                 <% }) %>
-            </ul>
+                </div>
             
         <% } else { %>
             <p>No Items added yet!</p>
