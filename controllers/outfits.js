@@ -7,7 +7,7 @@ const Outfit = require('../models/outfit.js');
 
 router.get('/', async (req, res) => {
     try {
-        const allOutfits = await Outfit.find({ owner: req.session.user._id });
+        const allOutfits = await Outfit.find({ owner: req.session.user._id }).populate('closetItems');
         res.render('outfits/index.ejs', {
             allOutfits,
             numberOfOutfits: allOutfits.length,

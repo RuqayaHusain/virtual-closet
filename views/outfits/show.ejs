@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= selectedOutfit.name %>'s Details</title>
+    <title>
+        <%= selectedOutfit.name %>'s Details
+    </title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
     <%- include('../partials/_navbar.ejs') %>
 
-    <h2><%= selectedOutfit.name %>'s Details</h2>
+        <div class="outfit-details-container">
+            <h2>
+                <%= selectedOutfit.name %>'s Details
+            </h2>
 
-    <div>
-        <h3>Outfit Details</h3>
-        <% listOfSelectedItems.forEach((item) => { %>
-            <img src="<%= item.imageURL %>" alt="<%= item.description %>">
-        <% }) %>
-    </div>
+            <h3>Outfit Details</h3>
+            <div class="outfit-images-grid">
+                <% listOfSelectedItems.forEach((item)=> { %>
+                    <img src="<%= item.imageURL %>" alt="<%= item.description %>">
+                    <% }) %>
+            </div>
 
-    <a href="/outfits/<%= selectedOutfit._id %>/edit">Edit <%= selectedOutfit.name %></a>
-
-    <form action="/outfits/<%= selectedOutfit._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete <%= selectedOutfit.name %></button>
-    </form>
+            <div class="actions">
+                <a href="/outfits/<%= selectedOutfit._id %>/edit">Edit <%= selectedOutfit.name %></a>
+                <form action="/outfits/<%= selectedOutfit._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete <%= selectedOutfit.name %></button>
+                </form>
+            </div>
+        </div>
 </body>
+
 </html>

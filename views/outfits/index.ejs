@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outfits</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
     <%- include('../partials/_navbar.ejs') %>
 
-    <div>
-        <p><%= numberOfOutfits %># Outfits</p>
-        <div>
-            <a href="/outfits/new">Add Outfit</a>
+        <div class="outfit-header">
+            <p>
+                <%= numberOfOutfits %> Outfits
+            </p>
+            <a href="/outfits/new">+ Add Outfit</a>
         </div>
-    </div>
 
-    <div>
-        <% if(numberOfOutfits > 0) { %>
-            <div>
-                <% allOutfits.forEach((outfit) => { %>
-                    <div>
-                        <a href="/outfits/<%= outfit._id %>"><%= outfit.name %></a>
+        <% if(numberOfOutfits> 0) { %>
+            <div class="outfit-grid">
+                <% allOutfits.forEach((outfit)=> { %>
+                    <div class="outfit-card">
+                        <div class="outfit-images">
+                            <% outfit.closetItems.forEach((item)=> { %>
+                                <% if(item.imageURL){ %>
+                                    <img src="<%= item.imageURL %>" alt="<%= item.description %>">
+                                    <% } else { %>
+                                        <div class="outfit-no-image">No Img</div>
+                                        <% } %>
+                                            <% }) %>
+                        </div>
+                        <a href="/outfits/<%= outfit._id %>">
+                            <%= outfit.name %>
+                        </a>
                     </div>
-                <% }) %>
-                </div>
-            
-        <% } else { %>
-            <p>No Items added yet!</p>
-        <% } %>
-    </div>
+                    <% }) %>
+            </div>
+            <% } else { %>
+                <p class="empty-message">No Outfits added yet!</p>
+                <% } %>
+
 </body>
+
 </html>

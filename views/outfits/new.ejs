@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>Add New Outfit!</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
 
   <%- include('../partials/_navbar.ejs') %>
 
-  <h2>Add New Outfit</h2>
+    <div class="outfit-form-container">
+      <h2>Add New Outfit</h2>
 
-    <form action="/outfits" method="POST">
+      <form action="/outfits" method="POST">
 
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+        <div>
+          <label for="name">Name:</label>
+          <input class="form-input" type="text" id="name" name="name" required>
+        </div>
+
+        <h3>Select Clothing Items:</h3>
+        <div class="closet-items-grid">
+          <% allClosetItems.forEach(item=> { %>
+            <div class="closet-item-option">
+              <input type="checkbox" name="closetItems" value="<%= item._id %>" id="item_<%= item._id %>" hidden>
+
+              <label for="item_<%= item._id %>" class="item-label">
+                <% if (item.imageURL) { %>
+                  <img src="<%= item.imageURL %>" alt="<%= item.description %>">
+                  <% } else { %>
+                    <span>No Image</span>
+                    <% } %>
+                      <div>
+                        <%= item.name %>
+                      </div>
+              </label>
+            </div>
+            <% }) %>
+        </div>
+
+        <button type="submit">Create Outfit</button>
+      </form>
     </div>
-    
-    <h3>Select Clothing Items:</h3>
-    <% allClosetItems.forEach(item => { %>
-      <div>
-        <input type="checkbox" 
-        name="closetItems" 
-        value="<%= item._id %>" 
-        id="item_<%= item._id %>" 
-        hidden>
-        
-        <label for="item_<%= item._id %>" class="item-label">
-          <% if (item.imageURL) { %>
-            <img src="<%= item.imageURL %>" alt="<%= item.description %>" width="80">
-          <% } %>
-          <div><%= item.name %></div>
-        </label>
-      </div>
-    <% }) %>
-    
-    <br>
-    <button type="submit">Create Outfit</button>
-  </form>
-
 </body>
+
 </html>
