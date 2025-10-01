@@ -708,6 +708,16 @@ input[type="checkbox"]:checked+.item-label {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+.upload-card {
+    margin-bottom: 1rem;
+}
+
+.upload-card img {
+    max-width: 200px;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+
 @media (max-width: 768px) {
     nav {
         flex-direction: column;

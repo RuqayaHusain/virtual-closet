@@ -28,8 +28,8 @@
               <input type="checkbox" name="closetItems" value="<%= item._id %>" id="item_<%= item._id %>" hidden>
 
               <label for="item_<%= item._id %>" class="item-label">
-                <% if (item.imageURL) { %>
-                  <img src="<%= item.imageURL %>" alt="<%= item.description %>">
+                <% if (item.imageURL?.url) { %>
+                  <img src="<%= item.imageURL?.url %>" alt="<%= item.description %>">
                   <% } else { %>
                     <span>No Image</span>
                     <% } %>

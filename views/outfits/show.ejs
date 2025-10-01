@@ -21,8 +21,12 @@
             <h3>Outfit Details</h3>
             <div class="outfit-images-grid">
                 <% listOfSelectedItems.forEach((item)=> { %>
-                    <img src="<%= item.imageURL %>" alt="<%= item.description %>">
-                    <% }) %>
+                    <% if(item.imageURL?.url){ %>
+                        <img src="<%= item.imageURL?.url %>" alt="<%= item.description %>">
+                        <% } else { %>
+                            <div class="outfit-no-image">No Img</div>
+                            <% } %>
+                                <% }) %>
             </div>
 
             <div class="actions">

@@ -24,8 +24,8 @@
                     <div class="outfit-card">
                         <div class="outfit-images">
                             <% outfit.closetItems.forEach((item)=> { %>
-                                <% if(item.imageURL){ %>
-                                    <img src="<%= item.imageURL %>" alt="<%= item.description %>">
+                                <% if(item.imageURL?.url){ %>
+                                    <img src="<%= item.imageURL?.url %>" alt="<%= item.description %>">
                                     <% } else { %>
                                         <div class="outfit-no-image">No Img</div>
                                         <% } %>

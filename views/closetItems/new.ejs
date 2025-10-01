@@ -13,7 +13,7 @@
 
         <h2 class="form-title">Add New Item</h2>
 
-        <form action="/closetItems" method="POST" class="form-page">
+        <form action="/closetItems" method="POST" enctype="multipart/form-data" class="form-page">
 
             <label for="name" class="form-label">Name:</label>
             <input type="text" name="name" id="name" class="form-input" required />
@@ -53,8 +53,8 @@
                 <option value="Multicolor">Multicolor</option>
             </select>
 
-            <label for="image-url" class="form-label">ImageURL:</label>
-            <input type="text" name="imageURL" id="image-url" class="form-input">
+            <label for="imageURL" class="form-label">Upload Image:</label>
+            <input type="file" id="imageURL" name="imageURL" accept="image/*" class="form-input">
 
             <button type="submit" class="btn">Create Item</button>
         </form>

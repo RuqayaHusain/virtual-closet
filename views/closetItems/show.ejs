@@ -15,8 +15,8 @@
 
         <div class="item-details-container">
             <div>
-                <% if (selectedItem.imageURL) { %>
-                    <img src="<%= selectedItem.imageURL %>" alt="<%= selectedItem.description %>">
+                <% if (selectedItem.imageURL?.url) { %>
+                    <img src="<%= selectedItem.imageURL?.url %>" alt="<%= selectedItem.description %>">
                     <% } else { %>
                         <p class="no-image-detail">No Image</p>
                         <% } %>

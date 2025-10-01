@@ -14,7 +14,8 @@
         <h2 class="form-title">Edit <%= selectedItem.name %>
         </h2>
 
-        <form action="/closetItems/<%= selectedItem._id %>?_method=PUT" method="POST" class="form-page">
+        <form action="/closetItems/<%= selectedItem._id %>?_method=PUT" method="POST" enctype="multipart/form-data"
+            class="form-page">
 
             <label for="name" class="form-label">Name:</label>
             <input type="text" name="name" id="name" value="<%= selectedItem.name %>" class="form-input" required />
@@ -103,10 +104,17 @@
                 </option>
             </select>
 
-            <label for="image-url" class="form-label">ImageURL:</label>
-            <input type="text" name="imageURL" id="image-url" value="<%= selectedItem.imageURL %>" class="form-input">
+            <% if (selectedItem.imageURL?.url) { %>
+                <div class="upload-card">
+                    <p class="form-label">Current Image:</p>
+                    <img src="<%= selectedItem.imageURL.url %>" alt="<%= selectedItem.description %>">
+                </div>
+                <% } %>
 
-            <button type="submit" class="btn">Edit <%= selectedItem.name %></button>
+                    <label for="imageURL" class="form-label">Upload New Image:</label>
+                    <input type="file" id="imageURL" name="imageURL" accept="image/*" class="form-input">
+
+                    <button type="submit" class="btn">Edit <%= selectedItem.name %></button>
         </form>
 </body>
 

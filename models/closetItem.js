@@ -19,7 +19,8 @@ const closetItemSchema = new mongoose.Schema({
         required: true,
     },
     imageURL: {
-        type: String,
+        url: String,
+        cloudinary_id: String,
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,

@@ -25,8 +25,8 @@
                 <div class="closet-grid">
                     <% AllClosetItems.forEach((item)=> { %>
                         <div class="closet-card">
-                            <% if (item.imageURL) { %>
-                                <img src="<%= item.imageURL %>" alt="<%= item.description %>">
+                            <% if (item.imageURL?.url) { %>
+                                <img src="<%= item.imageURL?.url%>" alt="<%= item.description %>">
                                 <% } else { %>
                                     <p class="no-image">No image</p>
                                     <% } %>
