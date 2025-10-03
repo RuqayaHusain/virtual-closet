@@ -9,7 +9,7 @@ It combines authentication, CRUD functionality, and relational data modeling to 
 ---
 
 ## 🖼️ Screenshot / Logo
-![App Screenshot](screenshot.png)  
+![App Screenshot](https://i.ibb.co/23NRvfzn/Screenshot-2025-10-03-at-10-47-45-AM.png)  
 
 ---
 
@@ -28,11 +28,11 @@ This project reimagines that concept with modern web technologies, giving users 
   - I want to be restricted from adding, editing, or deleting clothing items or outfits, so that only registered users can manage data.  
 
 - **As a logged-in user**  
-  - I want to add new clothing items, so that I can keep track of my wardrobe.  
-  - I want to view all my clothing items, so that I can see what I own at a glance.  
-  - I want to edit clothing items, so that I can correct or update their details.  
-  - I want to delete clothing items, so that I can remove items I no longer want.  
-  - I want to create outfits by combining clothing items, so that I can plan my outfits.  
+  - I want to add new closet items, so that I can keep track of my wardrobe.  
+  - I want to view all my closet items, so that I can see what I own at a glance.  
+  - I want to edit closet items, so that I can correct or update their details.  
+  - I want to delete closet items, so that I can remove items I no longer want.  
+  - I want to create outfits by combining closet items, so that I can plan my outfits.  
   - I want to view my outfits, so that I can see my combinations at a glance.  
   - I want to edit my outfits, so that I can modify outfit details or add/remove items.  
   - I want to delete my outfits, so that I can remove unwanted combinations.  
@@ -51,16 +51,16 @@ This project reimagines that concept with modern web technologies, giving users 
 | POST   | `auth/sign-in`    | Authenticate user       |
 | GET    | `auth/sign-out`   | Log out current user    |
 
-### Clothing Items
+### Closet Items
 | Method | Route              | Description                     |
 |--------|-------------------|---------------------------------|
-| GET    | `/clothing`       | List all clothing items (user)  |
-| GET    | `/clothing/new`   | Show form to add new item       |
-| POST   | `/clothing`       | Create new clothing item        |
-| GET    | `/clothing/:id`   | Show details of one item        |
-| GET    | `/clothing/:id/edit` | Show edit form              |
-| PUT    | `/clothing/:id`   | Update item details             |
-| DELETE | `/clothing/:id`   | Delete clothing item            |
+| GET    | `/closetItems`       | List all closet items (user)  |
+| GET    | `/closetItems/new`   | Show form to add new item       |
+| POST   | `/closetItems`       | Create new closet item        |
+| GET    | `/closetItems/:itemId`   | Show details of one item        |
+| GET    | `/closetItems/:itemId/edit` | Show edit form              |
+| PUT    | `/closetItems/:itemId`   | Update item details             |
+| DELETE | `/closetItems/:itemId`   | Delete closet item            |
 
 ### Outfits
 | Method | Route             | Description                     |
@@ -68,10 +68,10 @@ This project reimagines that concept with modern web technologies, giving users 
 | GET    | `/outfits`       | List all outfits (user)         |
 | GET    | `/outfits/new`   | Show form to create new outfit  |
 | POST   | `/outfits`       | Create new outfit               |
-| GET    | `/outfits/:id`   | Show details of one outfit      |
-| GET    | `/outfits/:id/edit` | Show edit form               |
-| PUT    | `/outfits/:id`   | Update outfit details           |
-| DELETE | `/outfits/:id`   | Delete outfit                   |
+| GET    | `/outfits/:outfitId`   | Show details of one outfit      |
+| GET    | `/outfits/:outfitId/edit` | Show edit form               |
+| PUT    | `/outfits/:outfitId`   | Update outfit details           |
+| DELETE | `/outfits/:outfitId`   | Delete outfit                   |
 
 ---
 
@@ -82,7 +82,7 @@ This project reimagines that concept with modern web technologies, giving users 
 - **Frontend:** EJS Templates  
 - **Database:** MongoDB with Mongoose  
 - **Authentication:** express-session + bcrypt  
-- **Deployment:** Render or Railway + MongoDB Atlas  
+- **Deployment:** heroku 
 
 ---
 
@@ -100,3 +100,12 @@ This project reimagines that concept with modern web technologies, giving users 
 - Social features: follow friends, like and comment on outfits.  
 - AI-based outfit recommendations based on user preferences and closet inventory.  
 - Export closet/outfits as a PDF lookbook.  
+
+---
+
+## 🙏 Attribution & Credits
+
+- 🎨 **Color Palette**: [Color Hunt](https://colorhunt.co/)  
+- 💻 **Helpful References & Resources**:  
+  - [Stack Overflow](https://stackoverflow.com)  
+  - [W3Schools](https://www.w3schools.com/)
