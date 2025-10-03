@@ -37,9 +37,9 @@
 
                 <% if (selectedItem.owner._id.equals(user._id)) { %>
                     <div class="actions">
-                        <a href="/closetItems/<%= selectedItem._id %>/edit">Edit</a>
+                        <a href="/closetItems/<%= selectedItem._id %>/edit">Edit <%= selectedItem.name %></a>
                         <form action="/closetItems/<%= selectedItem._id %>?_method=DELETE" method="POST">
-                            <button type="submit">Delete</button>
+                            <button type="submit">Delete <%= selectedItem.name %></button>
                         </form>
                     </div>
                     <% } %>
