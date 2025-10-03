@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
   <%- include('./partials/_navbar.ejs') %>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Your Style, Your Closet</h1>
-      <% if (user) { %>
-            <p>Welcome back, <strong><%= user.username %></strong>! Ready to add some new items to your closet?</p>
-            <a href="/closetItems/new" class="btn">Add Closet Items</a>
-      <% } else { %>
-        <p>Organize your wardrobe, mix & match, and explore your personal style journey.</p>
-        <a href="/auth/sign-up" class="btn">Create Free Account</a>
-      <% } %>
-    </div>
-    <div class="hero-image">
-      <img src="https://i.ibb.co/QFVJwFyr/Chat-GPT-Image-Oct-1-2025-07-43-39-PM.png" alt="Closet Illustration">
-    </div>
-  </section>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Your Style, Your Closet</h1>
+        <% if (user) { %>
+          <p>Welcome back, <strong>
+              <%= user.username %>
+            </strong>! Ready to add some new items to your closet?</p>
+          <a href="/closetItems/new" class="btn">Add Closet Items</a>
+          <% } else { %>
+            <p>Organize your wardrobe, mix & match, and explore your personal style journey.</p>
+            <a href="/auth/sign-up" class="btn">Create Free Account</a>
+            <% } %>
+      </div>
+      <div class="hero-image">
+        <img src="https://i.ibb.co/QFVJwFyr/Chat-GPT-Image-Oct-1-2025-07-43-39-PM.png" alt="Closet Illustration">
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2025 Virtual Closet | Built with Love & Style</p>
-  </footer>
+    <%- include('./partials/_footer.ejs') %>
 </body>
+
 </html>

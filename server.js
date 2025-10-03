@@ -57,11 +57,6 @@ app.use(isSignedIn);
 app.use('/closetItems', closetItemsController);
 app.use('/outfits', outfitsController);
 
-
-app.get('/vip-lounge', isSignedIn, (req, res) => {
-  res.send(`Welcome to the party ${req.session.user.username}.`);
-});
-
 app.listen(PORT, () => {
   console.log(`The express app is ready on port ${PORT}!`);
 });
