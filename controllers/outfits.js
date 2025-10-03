@@ -105,8 +105,6 @@ router.put('/:outfitId', async (req, res) => {
                 console.log('Permission denied!');
             }
         
-
-        await Outfit.fin
     } catch (error) {
         console.log(error);
         res.redirect('/');

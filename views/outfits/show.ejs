@@ -21,20 +21,26 @@
             <h3>Outfit Details</h3>
             <div class="outfit-images-grid">
                 <% listOfSelectedItems.forEach((item)=> { %>
-                    <% if(item.imageURL?.url){ %>
-                        <img src="<%= item.imageURL?.url %>" alt="<%= item.description %>">
-                        <% } else { %>
-                            <div class="outfit-no-image">No Img</div>
-                            <% } %>
-                                <% }) %>
+                    <div class="outfit-item">
+                        <% if(item.imageURL?.url){ %>
+                            <img src="<%= item.imageURL?.url %>" alt="<%= item.description %>">
+                            <% } else { %>
+                                <div class="outfit-no-image">No Img</div>
+                                <% } %>
+                                    <p class="outfit-item-name">
+                                        <%= item.name %>
+                                    </p>
+                    </div>
+                    <% }) %>
             </div>
-
-            <div class="actions">
-                <a href="/outfits/<%= selectedOutfit._id %>/edit">Edit <%= selectedOutfit.name %></a>
-                <form action="/outfits/<%= selectedOutfit._id %>?_method=DELETE" method="POST">
-                    <button type="submit">Delete <%= selectedOutfit.name %></button>
-                </form>
-            </div>
+            <% if (selectedOutfit.owner._id.equals(user._id)) { %>
+                <div class="actions">
+                    <a href="/outfits/<%= selectedOutfit._id %>/edit">Edit <%= selectedOutfit.name %></a>
+                    <form action="/outfits/<%= selectedOutfit._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete <%= selectedOutfit.name %></button>
+                    </form>
+                </div>
+                <% } %>
         </div>
 </body>
 

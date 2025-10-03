@@ -609,11 +609,26 @@ h2 {
 
 .outfit-images-grid img {
     width: 100%;
+    max-width: 200px;
     height: 220px;
     object-fit: cover;
     border-radius: 0.75rem;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.outfit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outfit-item-name {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: var(--primary-dark);
+    font-weight: 500;
+    text-align: center;
 }
 
 .outfit-form-container {
@@ -718,6 +733,116 @@ input[type="checkbox"]:checked+.item-label {
     border: 1px solid var(--border-color);
 }
 
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg,
+            var(--primary-light),
+            var(--secondary-light),
+            var(--accent-light));
+    border-bottom: 2px solid var(--primary-color);
+    flex: 1;
+}
+
+.hero-content {
+    flex: 1 1 50%;
+    max-width: 500px;
+    text-align: left;
+    padding: 1rem;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    font-family: "Playfair Display", serif;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1.2s ease;
+}
+
+.hero-content .btn {
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.hero-content .btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+.hero-image {
+    flex: 1 1 40%;
+    text-align: center;
+    padding: 1rem;
+}
+
+.hero-image img {
+    max-width: 80%;
+    height: 70%;
+    animation: fadeIn 1.4s ease;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    margin-top: auto;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -751,5 +876,24 @@ input[type="checkbox"]:checked+.item-label {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        min-height: calc(100vh - 60px);
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
     }
 }
