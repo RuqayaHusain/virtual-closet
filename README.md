@@ -88,7 +88,7 @@ This project reimagines that concept with modern web technologies, giving users 
 
 ## ⚙️ Getting Started
 
-- **Deployed App:** [Live Demo](https://your-deployed-app-link.com)  
+- **Deployed App:** [Live Demo](https://virtual-closet-app-3e153123c032.herokuapp.com/)  
 - **Planning Materials:** [Trello Board / Wireframes / Docs](https://trello.com/invite/b/68cfdb04cd1a41da3d331923/ATTI33fb665c90d835021aeb1e0563a0c5f9AE633675/virtual-closet)
 
 ---
